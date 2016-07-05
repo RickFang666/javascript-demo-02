@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*button:hover {*/
+            /*background-color: pink;*/
+        /*}*/
+        .current {
+            background-color: purple;
+        }
+        
+        
+    </style>
+</head>
+<body>
+<button class="current">按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+
+<script>
+
+    //需求：点亮按钮。（点亮某个按钮到时候，其他的按钮不变色）
+    //步骤：
+    //1.获得事件源
+    //2.绑定事件
+    //3.书写事件驱动程序
+        //（1）.改变背景色（干掉所有人，剩下我一个）
+
+
+    //1.获得事件源
+    var arrBtn = document.getElementsByTagName("button");
+    //2.绑定事件
+//    alert(1);
+
+    //这个for循环时用来绑定事件的
+    for(var i=0; i<arrBtn.length ;i++){
+        arrBtn[i].onclick = function () {
+//            alert(2);
+
+            //排他思想：干掉所有人，剩下我自己
+            //这个for循环是用来，清楚所有current类名的。（排他思想）
+            for(var j= 0; j<arrBtn.length; j++){
+                arrBtn[j].className = "";
+            }
+
+            //3.书写事件驱动程序
+            //（1）.改变背景色
+
+            //剩下我一个
+            this.className = "current";
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

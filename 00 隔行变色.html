@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .box {
+            width: 300px;
+            margin: 100px auto;
+        }
+        li {
+            height: 30px;
+            font: 400 15px/30px "simsun";
+        }
+        .current {
+            background-color: red!important;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <ul>
+        <li>上证指数   3651.77    +   9.30</li>
+        <li>深证成指   13139.12   +   110.82</li>
+        <li>恒生指数   21830.02   +   38.34</li>
+        <li>腾安指数   2696.29    +   23.62</li>
+        <li>上证指数   3651.77    +   9.30</li>
+        <li>深证成指   13139.12   +   110.82</li>
+        <li>恒生指数   21830.02   +   38.34</li>
+        <li>腾安指数   2696.29    +   23.62</li>
+    </ul>
+
+</div>
+
+<script>
+    //需求：隔行变色，鼠标放上去，还变色。
+    //步骤：
+    //（隔行变色）
+    //1.获取事件源
+    //2.绑定事件
+    //3.书写事件驱动程序
+        //（1）.鼠标放在谁上面，谁更改标签中class属性值（排他思想）
+
+    //1.获取事件源
+    var arrLi = document.getElementsByTagName("li");
+
+        //这个for循环是隔行变色（遍历数组）
+    for(var i=0; i<arrLi.length; i++) {
+        if (i % 2 == 0) {
+            arrLi[i].style.backgroundColor = "#ccc";
+        }
+//        else{
+//            arrLi[i].style.backgroundColor = "#333";
+//        }
+
+    }
+
+    //这个for循环是给li绑定事件用的
+    for(var i=0; i<arrLi.length; i++){
+        //2.绑定事件
+        arrLi[i].onmouseover = function () {
+
+            //这个for循环是给li清楚类名用的（排他思想，for）
+            for(var j=0; j<arrLi.length; j++){
+                arrLi[j].className = "";
+//              alert(j);
+            }
+
+            this.className = "current";
+        }
+    }
+    //3.书写事件驱动程序
+    //（1）.鼠标放在谁上面，谁更改标签中class属性值
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
