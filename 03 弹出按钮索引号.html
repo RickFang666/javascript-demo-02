@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+
+<script>
+    //需求：鼠标点击按钮，显示按钮的索引值。
+    //步骤：
+    //1.获取事件源
+    //2.绑定事件
+    //3.书写事件驱动程序
+        //（0）.绑定索引值
+        //（1）.for循环绑定事件
+        //（2）.获取索引值
+        //（3）.弹出索引值
+
+    
+    //1.获取事件源
+    var btnArr = document.getElementsByTagName("button");
+    
+    //遍历数组
+    for(var i=0; i<btnArr.length; i++){
+
+        //标签也可以绑定属性。
+        //（0）.绑定索引值
+        btnArr[i].index1 = i;
+        //2.绑定事件
+        //（1）.for循环绑定事件
+        btnArr[i].onmouseover = function () {
+
+            //3.书写事件驱动程序
+            //（2）.获取索引值
+            //（3）.弹出索引值
+            alert(btnArr[i].index1);
+        }
+    }
+
+
+
+</script>
+
+
+</body>
+</html>
