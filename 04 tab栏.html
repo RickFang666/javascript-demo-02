@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 300px;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+        ul {
+            width: 310px;
+            list-style: none;
+        }
+        .box-top li {
+            width: 61px;
+            height: 30px;
+            background-color: #ccc;
+            text-align: center;
+            font: 400 15px/30px "microsoft yahei";
+            float: left;
+            cursor: pointer;
+        }
+        .box-bottom div {
+            height: 300px;
+            display: none;
+            background-color: pink;
+        }
+        .box-top .current {
+            background-color: pink;
+        }
+        .box-bottom .show {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+        <div class="box">
+            <div class="box-top">
+                <ul>
+                    <li class="current">男装</li>
+                    <li>女装</li>
+                    <li>鞋子</li>
+                    <li>裤子</li>
+                    <li>袜子</li>
+                </ul>
+            </div>
+            <div class="box-bottom" id="boxBottom">
+                <div class="show">都是男装</div>
+                <div class="">都是女装</div>
+                <div class="">都是鞋子</div>
+                <div class="">都是裤子</div>
+                <div class="">都是袜子</div>
+            </div>
+        </div>
+
+        <script>
+
+            //需求： 鼠标放li上，切换box-bottom里面相对应的盒子。
+            //步骤：
+            //1.获得事件源和box-bottom里面的div
+            //2.绑定事件
+            //3.书写事件驱动程序
+                //绑定属性.(绑定事件之前)
+                //更改类名。(清除所有人，剩下我一个)（给谁更改类名？传递过来的索引是几，我们就更改第几个）
+
+            //1.获得事件源和box-bottom里面的div
+            var boxBottom = document.getElementById("boxBottom");
+            var arrLi = document.getElementsByTagName("li");
+            var arrDiv = boxBottom.getElementsByTagName("div");
+
+            //遍历数组，事件源的数组(绑定事件用的)
+            for(var i=0; i<arrLi.length; i++){
+
+                //绑定属性.(绑定事件之前)
+                arrLi[i].index = i;
+
+                //2.绑定事件
+                arrLi[i].onmouseover = function(){
+
+                    //3.书写事件驱动程序
+
+                    //清楚类名用的（排他思想）
+                    for(var j=0; j<arrLi.length; j++){
+                        arrLi[j].className = "";
+                        arrDiv[j].className = "";
+                    }
+
+                    //更改类名。（给谁更改类名？传递过来的索引是几，我们就更改第几个）
+                    this.className = "current";
+                    arrDiv[this.index].className = "show";
+
+                }
+            }
+
+
+        </script>
+
+
+
+
+</body>
+</html>
