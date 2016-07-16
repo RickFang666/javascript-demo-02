@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box {
+            width: 320px;
+            height: 260px;
+            padding-left: 30px;
+            margin: 100px auto;
+            border: 1px solid #ccc;
+        }
+        .box-top {
+            height: 35px;
+            font: 400 18px/35px "microsoft yahei";
+            color: #62b4cc;
+        }
+        .box-middle {
+            height: 50px;
+            padding-left: 60px;
+            margin: 10px 0;
+            background: url(images/xingzuo.png) no-repeat;
+        }
+        select {
+            float: left;
+        }
+        .box-star {
+            float: left;
+            margin-top: 5px;
+            width: 180px;
+        }
+        .box-bottom {
+            padding-right: 30px;
+        }
+        .icon1 {
+            display: inline-block;
+            width: 80px;
+            height: 13px;
+            background: url(images/star.png) no-repeat;
+        }
+        .icon2 {
+            display: inline-block;
+            width: 80px;
+            height: 13px;
+            background: url(images/star.png) no-repeat 0 -28px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box-top">
+            星座运势
+        </div>
+        <div class="box-middle" id="xingZuo">
+            <select name="" id="sel">
+                <option value="0">白羊座1-3</option>
+                <option value="1">水瓶座4-6</option>
+                <option value="2">双子座7-9</option>
+                <option value="2">双子座7-9</option>
+                <option value="2">双子座7-9</option>
+                <option value="2">双子座7-9</option>
+                <option value="2">双子座7-9</option>
+                <option value="2">双子座7-9</option>
+                <option value="2">双子座7-9</option>
+                <option value="2">双子座7-9</option>
+            </select>
+            <div class="box-star">今日运势:
+                <span class="icon1"><span class="icon2" id="star"></span></span>
+            </div>
+        </div>
+        <div class="box-bottom" id="content">
+            今天工作运势相当的好，但要小心破财，要注意危言耸听的宗教信仰而花费了不理智的钱财，或是身边...[详细]
+        </div>
+    </div>
+</body>
+
+
+<script>
+    //需求：select的更改联动box-middle的背景图，icon2，box-bottom更改。
+           //下拉菜单的更改联动星座图片，小星星，内容一起更改
+    //步骤：
+    //1.获取事件源
+    //2.绑定事件
+    //3.书写事件驱动程序
+        //（1）.要更改   星座图片，小星星，内容
+
+    //1.获取事件源
+    var sel = document.getElementById("sel");
+    var xingZuo = document.getElementById("xingZuo");
+    var star = document.getElementById("star");
+    var content = document.getElementById("content");
+
+    //定义一个关于星星长度的数组
+    var arrStar = [3,7,10];
+    //定义一个关于星座内容的数组
+    var arrContent = [
+        "今天工作运势相当的好，但要小心破财，要注意危言耸听的宗教信仰而花费了不理智的钱财，或是身边...[详细]",
+        "今天的你听到了一些不实的蜚短流长，情绪起伏较多，有点担心他人的眼光，是否观感不好，那就要小...[详细]",
+        "工作上很多事情都□要去配合他人，小心随波逐流了，请适当的表达自己的情绪想法，重新整顿工作效...[详细]"];
+
+    //把第一个星座的运势加载上去
+    star.style.width = arrStar[0]*8+"px";
+
+    //2.绑定事件
+    sel.onchange = function () {
+        //3.书写事件驱动程序
+        //（1）.要更改   星座图片，小星星，内容
+        xingZuo.style.backgroundPosition = "0 -"+sel.value*50+"px";
+        content.innerHTML = arrContent[sel.value];
+        star.style.width = arrStar[sel.value]*8+"px";
+    }
+
+
+</script>
+
+
+
+</html>
