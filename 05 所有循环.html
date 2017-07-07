@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    //求和（三种循环求和）（1-100）== 5050
+    var sumFor = 0;
+    var sumWhile = 0;
+    var sumDoWhile = 0;
+
+    //for循环
+    for(var i =0;i<101;i++){
+        sumFor += i;
+    }
+    console.log(sumFor);
+
+    //while循环
+    var j = 0;
+    while(j<101){
+        sumWhile += j;
+        j++;
+    }
+    console.log(sumWhile);
+
+    //do/while循环
+    var k = 0;
+    do{
+        sumDoWhile += k;
+        k++;
+    }while(k<101);
+    console.log(sumDoWhile);
+
+
+
+</script>
+</body>
+</html>
